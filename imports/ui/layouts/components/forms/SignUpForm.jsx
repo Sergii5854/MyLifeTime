@@ -29,7 +29,7 @@ class SignUpForm extends React.Component {
         });
 
         console.log(1);
-        FlowRouter.go('/');
+        FlowRouter.go('/calendar');
         
     } /* end of Sign up*/ 
 

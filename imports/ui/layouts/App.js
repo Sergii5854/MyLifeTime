@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import {Modal, FormGroup, ControlLabel, Button, Col, FormControl, Checkbox} from "react-bootstrap";
 
+
 import SignInForm from "./components/forms/SignInForm"
 import SignUpForm from "./components/forms/SignUpForm"
 
@@ -40,18 +41,18 @@ class App extends React.Component {
     }
       
     render() {
-       /* if(this.props.isLoading){*/
+       
         return (
             <div className="app-root">
                 <div className="container">
          
                         <heder>
                         <h2>My Life Time </h2>
-                        <h3 id="username"> {this.props.user.username}  </h3>
+                        
                         <div id="sign">
                         <Button  data-info="signIn" onClick={this.openForm}>Sign In</Button> 
                         <Button  data-info="signUp" onClick={this.openForm}>Sign Up</Button>  
-                        <Button href="/logout" >Logout</Button> 
+                     {/*   <Button href="/logout" >Logout</Button> */}
                       
                         </div> 
 
@@ -72,17 +73,11 @@ class App extends React.Component {
             </div>
 
         )
-        /*  }else{
-            return(
-                <div>Loading ...</div>
-            )
-        }*/
+      
     }
 }
-export default AppContainer = createContainer(() => {
-    const subscribe =  Meteor.subscribe("user");
+export default createContainer(() => {
     return {
-        isLoading: subscribe.ready(),
-        user: Meteor.users.findOne() || {}
+        currentUser: Meteor.user(),
     };
-}, App);
+},App);

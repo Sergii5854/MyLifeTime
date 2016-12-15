@@ -23,7 +23,7 @@ class SingInForm extends React.Component {
                     console.log(error.reason);
                 }else{
 
-                    FlowRouter.go('/'); // дописать куда перебрасывать после
+                    FlowRouter.go('/calendar'); // дописать куда перебрасывать после
                 }
             }
         )
